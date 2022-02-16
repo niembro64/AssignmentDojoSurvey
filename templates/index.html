@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>INDEX</title>
+
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{ url_for('static', filename='style.css') }}"
+        />
+
+        <!-- <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script> -->
+
+        <!-- <img src="{{ url_for('static', filename='img.jpg') }}"> -->
+    </head>
+    <body>
+        <h1>COUNT SESSIONS</h1>
+        <h2>{{session['sc']}}</h2>
+
+        <h1>DESTROY SESSION</h1>
+        <form action="/destroy_session" method="post">
+            <input type="submit" value="Destroy Session" />
+        </form>
+
+        <h1>ADD 2 SESSIONS</h1>
+        <form action="/add2" method="post">
+            <input type="submit" value="Add 2 Sessions">
+        </form>
+
+        <h1>RESET COUNTER</h1>
+        <form action="/reset_sc" method="post">
+            <input type="submit" value="Reset Counter">
+        </form>
+
+        <h1>GET INFO</h1>
+
+        <form action="/users" method="post">
+            <label for="name">Name: </label>
+            <input type="text" name="name" />
+
+            <label for="email">Email: </label>
+            <input type="text" name="email" />
+
+            <input type="submit" value="Create User" />
+        </form>
+
+        <h1>SHOW</h1>
+
+        <h2>User: {{session['username']}}</h2>
+        <h2>Email: {{session['useremail']}}</h2>
+    </body>
+</html>
